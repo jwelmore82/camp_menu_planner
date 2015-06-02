@@ -1,0 +1,17 @@
+body {
+    box-sizing: border-box;
+    background-color: orange;
+    display: block;
+    text-align: center;
+
+}
+
+p {
+    max-width: 45%;
+    font-size: 1.3em;
+    margin: 0 2.5% 0 2.5%;
+    box-shadow: 10px 10px 12px orange inset, -10px -10px 12px orange inset;
+    margin: 0 2.5% 0 2.5%;
+    background-size: cover;
+    float: left;
+}
