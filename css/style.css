@@ -1,17 +1,70 @@
 body {
-    box-sizing: border-box;
-    background-color: orange;
-    display: block;
+    background-color: #a85400;
+}
+
+header {
+    background-color: #000;
+    color: #a85400;
+    padding-top: 2%;
+    font-size: 1.35em;
     text-align: center;
+}
+
+.logo {
+
+    border-radius: 100%;
+    border: 5px solid green;
+    padding-left: 2px;
+}
+
+
+
+/*************************************************
+Tabbed Navigation
+*************************************************/
+#tabnav {
+    text-align: left;
+    border-bottom: 1px solid #a85400;
+    padding: .12em .5em;
+    font-size: .85em;
+}
+
+#tabnav li {
+    display: inline;
+    max-width: 29%;
+}
+
+/*Selected Tab*/
+
+body#tab1 li.tab1 a, body#tab2 li.tab2 a,
+body#tab3 li.tab3 a, body#tab4 li.tab4 a {
+    background-color: #a85400;
+    color: #000;
 
 }
 
-p {
-    max-width: 45%;
-    font-size: 1.3em;
-    margin: 0 2.5% 0 2.5%;
-    box-shadow: 10px 10px 12px orange inset, -10px -10px 12px orange inset;
-    margin: 0 2.5% 0 2.5%;
-    background-size: cover;
-    float: left;
+/*All Tabs*/
+
+ul#tabnav li a {
+    padding: .15em .2em;
+    border: 1px solid #a85400;
+    background-color: #cb9866;
+    color: #a85405;
+    margin-right: .2em;
+    text-decoration: none;
+    border-bottom: 2px solid #a85400;
+    border-radius: 20% 20% 0 0;
+}
+
+#tabnav a:hover {
+    background: skyblue;
+}
+
+
+
+footer {
+
+    height: 8em;
+    background: linear-gradient(#a85400, black);
+
 }
