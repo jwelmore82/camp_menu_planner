@@ -1,20 +1,35 @@
+@font-face {
+    font-family: 'Journal';
+    src: url('../fonts/journal-webfont.eot');
+    src: url('../fonts/journal-webfont.eot?iefix') format('eot'),
+         url('../fonts/journal-webfont.woff') format('woff'),
+         url('../fonts/journal-webfont.ttf') format('truetype'),
+         url('../fonts/journal-webfont.svg#webfont') format('svg')
+}
+
+
 body {
-    background-color: #a85400;
+    background-image: url("../img/tree.jpg");
+    background-attachment:  fixed;
 }
 
 header {
-    background-color: #000;
-    color: #a85400;
+    color: #fff;
+    background: linear-gradient(#0000ff, rgba(153, 230, 255, 1), rgba(0, 76, 0, 1), rgba(54, 32, 30, .9), #000);
     padding-top: 2%;
     font-size: 1.35em;
     text-align: center;
+    margin: 0 0 10px o;
+    text-shadow: 10px 10px 10px black;
+}
+header h1 {
+    margin-top: 8px;
 }
 
 .logo {
 
     border-radius: 100%;
     border: 5px solid green;
-    padding-left: 2px;
 }
 
 
@@ -22,49 +37,95 @@ header {
 /*************************************************
 Tabbed Navigation
 *************************************************/
+
 #tabnav {
-    text-align: left;
-    border-bottom: 1px solid #a85400;
-    padding: .12em .5em;
-    font-size: .85em;
+    text-align: center;
+    border-bottom: 5px solid #000;
+    padding: .12em 0 19px 0;
+    font-size: .75em;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: fantasy;
 }
 
 #tabnav li {
-    display: inline;
-    max-width: 29%;
+    display: inline-block;
 }
 
 /*Selected Tab*/
 
 body#tab1 li.tab1 a, body#tab2 li.tab2 a,
 body#tab3 li.tab3 a, body#tab4 li.tab4 a {
-    background-color: #a85400;
-    color: #000;
-
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
 }
 
 /*All Tabs*/
 
-ul#tabnav li a {
-    padding: .15em .2em;
-    border: 1px solid #a85400;
-    background-color: #cb9866;
+#tabnav li a {
+    padding: 20px 5px;
+    background-color: rgba(0, 0, 0, 0.5);;
     color: #a85405;
-    margin-right: .2em;
     text-decoration: none;
-    border-bottom: 2px solid #a85400;
-    border-radius: 20% 20% 0 0;
 }
 
 #tabnav a:hover {
-    background: skyblue;
+    background: rgba(153, 230, 255, .5);
 }
 
 
 
+/*************************************************
+Content Styles
+*************************************************/
+
+
+#about, #tips {
+    background-color: #eee;
+    max-width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 10px 5px black;
+    font-family: serif;
+
+}
+
+/**********
+Recipes
+**********/
+
+.recipes {
+    background-color: #eee;
+    max-width: 80%;
+    font-family: cursive, sans-serif;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    background-image: url("../img/wood_01.jpg");
+    color: yellow;
+    border: #36201e 5px ridge;
+    /*border-style: ridge;*/
+    /*margin-bottom: 1em;*/
+    margin: 1.2em auto;
+    box-shadow: 10px 10px 5px black;
+
+}
+
+.recipes h3 {
+    font-family: 'Journal', cursive;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.recipes li {
+    list-style: square;
+}
+
 footer {
+    height: 4em;
+    background: linear-gradient(rgba(0, 255, 0, 0.5), rgba(255, 156, 0, 0.5), black);
+}
 
-    height: 8em;
-    background: linear-gradient(#a85400, black);
-
+footer a {
+    text-decoration: none;
 }
