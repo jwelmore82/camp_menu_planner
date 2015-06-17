@@ -80,34 +80,37 @@ Content Styles
 *************************************************/
 
 
-#about, #tips {
-    background-color: #eee;
+#about, #tips, form {
+    background-image: url("../img/wood_02.jpg");
     max-width: 80%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 10px 10px 5px black;
-    font-family: serif;
+    font-family: sans-serif;
 
 }
 
-/**********
+#tips p {
+    text-align: left;
+    text-indent: 1em;
+    margin: 1.2em;
+}
+
+/********
 Recipes
-**********/
+********/
 
 .recipes {
     background-color: #eee;
     max-width: 80%;
     font-family: cursive, sans-serif;
-    /*margin-left: auto;
-    margin-right: auto;*/
     background-image: url("../img/wood_01.jpg");
     color: yellow;
     border: #36201e 5px ridge;
-    /*border-style: ridge;*/
-    /*margin-bottom: 1em;*/
     margin: 1.2em auto;
     box-shadow: 10px 10px 5px black;
+    padding: 0 1em;
 
 }
 
@@ -115,15 +118,26 @@ Recipes
     font-family: 'Journal', cursive;
     font-size: 2.5em;
     text-align: center;
+    margin: 10px;
 }
 
 .recipes li {
     list-style: square;
 }
 
+.recipes h4 {
+    font-family: 'Journal', cursive;
+    font-size: 1.75em;
+    margin: 10px;
+}
+
+
+/*******
+Footer
+*******/
 footer {
     height: 4em;
-    background: linear-gradient(rgba(0, 255, 0, 0.5), rgba(255, 156, 0, 0.5), black);
+    background: linear-gradient(rgba(0, 76, 0, 1), rgba(54, 32, 30, .9), #000);
 }
 
 footer a {
