@@ -7,15 +7,16 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
     </head>
     <body id="tab1">
         <header>
             <img src="img/CMPlogo.png" width="130px" alt="Camp Menu Planner Logo" class="logo">
             <h1><span>Welcome to the Camp Menu Planner!</span></h1>
             <ul id="tabnav">
-                <li class="tab1"><a href="#">About</a></li>
-                <li class="tab2"><a href="#">Select Ingredients</a></li>
-                <li class="tab3"><a href="#">Browse Recipes</a></li>
+                <li class="tab1"><a>About</a></li>
+                <li class="tab2"><a>Select Ingredients</a></li>
+                <li class="tab3"><a>Browse Recipes</a></li>
             </ul>
         </header>
 
@@ -27,6 +28,8 @@
                    ingredients. As an alternative you can browse recipes, select
                     your favorites, and generate a shopping list. </p>
         </div>
+        <form class="user_input" action="index.html" method="post">
+        </form>
         <div id="tips">
             <h3>General Camp Cooking Tips</h3>
             <img src="img/field_kitchen.gif" alt="Field Kitchen" width="200px" />
@@ -49,9 +52,7 @@
                 be found in the camping section at many retail stores, or there
                 are many DIY ideas to be found online.</p>
         </div>
-        <form class="user_input" action="index.html" method="post">
-        </form>
-        <div class="recipes">
+        <div class="recipes hotdogs" id="hotdog_cassarole">
             <h3>Hot Dog Casserole</h3>
             <ul>
 
@@ -68,7 +69,7 @@
                 mixed and cook about 30 minutes.</p>
             <h4>Servings: 6-8</h4>
         </div>
-        <div class="recipes">
+        <div class="recipes hotdogs cheese">
             <h3>Campfire Coneys</h3>
             <ul>
                 <li>hotdogs</li>
@@ -81,10 +82,10 @@
             <p>Prepare hotdogs to taste, wrap in aluminum foil and heat until done.</p>
             <h4>Servings: as needed</h4>
         </div>
-        <div class="recipes">
+        <div class="recipes" id="healthy_hotdogs">
             <h3>Healthy Camp Hotdogs</h3>
             <ul>
-                <li>hotdogs</li>
+                <li class="hotdogs">hotdogs</li>
                 <li>chopped broccoli</li>
                 <li>chopped cauliflower</li>
                 <li>diced carrot</li>
@@ -201,5 +202,6 @@
             <a href="#">Back to top.</a>
 
         </footer>
+        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
