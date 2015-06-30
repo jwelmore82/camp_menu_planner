@@ -11,6 +11,9 @@
 body {
     background-image: url("../img/tree.jpg");
     background-attachment:  fixed;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 header {
@@ -45,7 +48,7 @@ Tabbed Navigation
     font-size: .75em;
     margin-left: auto;
     margin-right: auto;
-    font-family: fantasy;
+    font-family: Arial, fantasy;
 }
 
 #tabnav li {
@@ -69,7 +72,7 @@ body#tab3 li.tab3 a, body#tab4 li.tab4 a {
     text-decoration: none;
 }
 
-#tabnav a:hover {
+#tabnav a:hover, #tabnav a:focus  {
     background: rgba(153, 230, 255, .5);
 }
 
@@ -97,6 +100,11 @@ Content Styles
     margin: 1.2em;
 }
 
+
+.user_input label {
+    margin-right: 2em;
+    min-width: 30%;
+}
 /********
 Recipes
 ********/

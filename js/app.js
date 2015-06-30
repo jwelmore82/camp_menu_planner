@@ -8,10 +8,66 @@ var ingr;
 
 //Create ingredients array
 var ingredients = [
-    [ 'beef', "Ground beef"],
-    [ 'hotdogs', "Hotdogs"],
-    [ 'cheese', "Cheese"]
+    ['beef', "Ground beef"],
+    ['hotdogs', "Hotdogs"],
+    ['cheese', "Cheese"],
+    ['beans', "Baked Beans"],
+    ['sugar', "Sugar (Any kind)"],
+    ['mustard', "Mustard"],
+    ['ketchup', "Ketchup"],
+    ['onion', "Onion"],
+    ['buns', "Buns or Bread"],
+    ['chili', "Chili"],
+    ['broccoli', "Broccoli"],
+    ['carrot', "Carrots"],
+    ['cauliflower', "Cauliflower"],
+    ['cabbage', "Cabbage"],
+    ['potato', "Potatoes"],
+    ['bbq', "Barbaque Sauce"],
+    ['bell_pepper', "Bell Peppers"],
+    ['banana', "Bananas"],
+    ['chocolate', "Chocolate (Any)"],
+    ['cocoa', "Cocoa Powder"],
+    ['butter', "Butter or Margarine"],
+    ['cream_cheese', "Cream Cheese"],
+    ['vanilla', "Vanilla Extract"],
+    ['marshmallow', "Marshmallows (Any)"],
+    ['cone', "Ice Cream Cones"]
 ]
+
+//Function used to show recipes!
+
+function showRec(item) {
+    for (var i = 0; i < ingrHTML.length; i++) {
+        if ($(ingrHTML[i]).hasClass(item)){
+            $(ingrHTML[i]).show();
+        };
+    }
+}
+//Function to hide recipes!
+function hideRec(item) {
+    for (var i = 0; i < ingrHTML.length; i++) {
+        if ($(ingrHTML[i]).hasClass(item)){
+            $(ingrHTML[i]).hide();
+        };
+    }
+}
+
+//Create checkboxes
+
+for (var i = 0; i < ingredients.length; i+=1) {
+    boxes += "<input type='checkbox' name='";
+    boxes += ingredients[i][0] + "' value='" + ingredients[i][0] + "'></input>";
+    boxes += "<label for='" + ingredients[i][0] + "'>";
+    boxes += ingredients[i][1] + "</label>";
+}
+
+$('.user_input').append(boxes + "<input type='submit'></input>" );
+
+//Selected class toggled when checkbox changed
+$('.user_input').on("change", "input", function() {
+    $(this).toggleClass('selected');
+})
 
 
 //On Tab click
@@ -43,40 +99,6 @@ $('#tabnav').on('click', '.tab3 a', function() {
     $('.recipes').show();
     $('.user_input').hide();
 })
-
-//Function used to show recipes!
-
-function showRec(item) {
-    for (var i = 0; i < ingrHTML.length; i++) {
-        if ($(ingrHTML[i]).hasClass(item)){
-            $(ingrHTML[i]).show();
-        };
-    }
-}
-//Function to hide recipes!
-function hideRec(item) {
-    for (var i = 0; i < ingrHTML.length; i++) {
-        if ($(ingrHTML[i]).hasClass(item)){
-            $(ingrHTML[i]).hide();
-        };
-    }
-}
-
-
-
-for (var i = 0; i < ingredients.length; i+=1) {
-    boxes += "<input type='checkbox' name='";
-    boxes += ingredients[i][0] + "' value='" + ingredients[i][0] + "'></input>";
-    boxes += "<label for='" + ingredients[i][0] + "'>";
-    boxes += ingredients[i][1] + "</label>";
-}
-
-$('.user_input').append(boxes + "<input type='submit'></input>" );
-
-$('.user_input').on("change", "input", function() {
-    $(this).toggleClass('selected');
-})
-//Assign all recipes classes based on ingredients
 
 //Show recipes matching ingredients after submit.
 $('form').submit(function(evt){
