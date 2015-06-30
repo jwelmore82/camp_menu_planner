@@ -56,7 +56,7 @@ function hideRec(item) {
 //Create checkboxes
 
 for (var i = 0; i < ingredients.length; i+=1) {
-    boxes += "<input type='checkbox' name='";
+    boxes += "<input type='checkbox' id='";
     boxes += ingredients[i][0] + "' value='" + ingredients[i][0] + "'></input>";
     boxes += "<label for='" + ingredients[i][0] + "'>";
     boxes += ingredients[i][1] + "</label>";
