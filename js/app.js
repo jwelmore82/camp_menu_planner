@@ -56,9 +56,8 @@ function hideRec(item) {
 //Create checkboxes
 
 for (var i = 0; i < ingredients.length; i+=1) {
-    boxes += "<input type='checkbox' name='";
-    boxes += ingredients[i][0] + "' value='" + ingredients[i][0] + "'></input>";
-    boxes += "<label for='" + ingredients[i][0] + "'>";
+    boxes += "<label><input type='checkbox'";
+    boxes += "' value='" + ingredients[i][0] + "'></input>";
     boxes += ingredients[i][1] + "</label>";
 }
 
@@ -106,7 +105,7 @@ $('form').submit(function(evt){
             //if ingredients true show recipe div
     $(".user_input input[type=checkbox]").each(function(){
         if ($(this).hasClass('selected')){
-            ingr = this.name;
+            ingr = this.value;
             console.log("Has " + ingr);
             showRec(ingr);
         };
@@ -114,7 +113,7 @@ $('form').submit(function(evt){
         //if ingredients false hide recipe div
     $(".user_input input[type=checkbox]").each(function(){
         if (!$(this).hasClass('selected')){
-            ingr = this.name;
+            ingr = this.value;
             console.log("Does not have " + ingr);
             hideRec(ingr);
         };
