@@ -1,7 +1,3 @@
-// Hide recipes and ingredients until needed.
-$('.recipes').hide();
-$('.user_input').hide();
-
 var ingrHTML = $('.recipes');
 var boxes = "";
 var ingr;
@@ -73,26 +69,26 @@ $('.user_input').on("change", "input", function() {
 //1a generate checkboxes in form. (ingredients)
 //1b Show recipes with checkboxes (recipes)
 //2 change active tab
-$('#tabnav').on('click', 'a', function() {
-    var $tabNum = $(this).parent().attr('class');
+$('#tabnav').on('click', 'li', function() {
+    var $tabNum = $(this).attr('class');
     $('body').attr('id', $tabNum);
 })
 
-$('#tabnav').on('click', '.tab1 a', function() {
+$('#tabnav').on('click', '.tab1', function() {
     $('#about').show();
     $('#tips').show();
     $('.recipes').hide();
     $('.user_input').hide();
 })
 
-$('#tabnav').on('click', '.tab2 a', function() {
+$('#tabnav').on('click', '.tab2', function() {
     $('#about').hide();
     $('#tips').show();
     $('.recipes').hide();
     $('.user_input').show();
 })
 
-$('#tabnav').on('click', '.tab3 a', function() {
+$('#tabnav').on('click', '.tab3', function() {
     $('#about').hide();
     $('#tips').hide();
     $('.recipes').show();

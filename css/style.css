@@ -31,8 +31,9 @@ header h1 {
 
 .logo {
 
-    border-radius: 100%;
-    border: 5px solid green;
+    border-radius: 20%;
+    border: 5px solid rgb(0, 76, 0);
+    background-color: #a85405
 }
 
 
@@ -44,35 +45,34 @@ Tabbed Navigation
 #tabnav {
     text-align: center;
     border-bottom: 5px solid #000;
-    padding: .12em 0 19px 0;
+    padding: 0;
     font-size: .75em;
     margin-left: auto;
     margin-right: auto;
     font-family: Arial, fantasy;
 }
 
-#tabnav li {
-    display: inline-block;
-}
 
 /*Selected Tab*/
 
-body#tab1 li.tab1 a, body#tab2 li.tab2 a,
-body#tab3 li.tab3 a, body#tab4 li.tab4 a {
+body#tab1 li.tab1, body#tab2 li.tab2,
+body#tab3 li.tab3, body#tab4 li.tab4{
     background-color: rgba(0, 0, 0, .8);
     color: #fff;
 }
 
 /*All Tabs*/
 
-#tabnav li a {
+#tabnav li {
     padding: 20px 5px;
     background-color: rgba(0, 0, 0, 0.5);;
     color: #a85405;
     text-decoration: none;
+    list-style: none;
+    margin-top: 1em;
 }
 
-#tabnav a:hover, #tabnav a:focus  {
+#tabnav li:hover, #tabnav li:focus  {
     background: rgba(153, 230, 255, .5);
 }
 
@@ -101,10 +101,22 @@ Content Styles
 }
 
 
-.user_input label {
-    margin-right: 2em;
-    min-width: 30%;
+.user_input {
+    display: none;
+    overflow: auto;
+    padding-left: 3em;
 }
+
+.user_input label, .user_input input[type=submit]  {
+    margin: .5em;
+    float: left;
+    clear: both;
+    max-width: 100%;
+    position: relative;
+
+}
+
+
 /********
 Recipes
 ********/
@@ -119,6 +131,7 @@ Recipes
     margin: 1.2em auto;
     box-shadow: 10px 10px 5px black;
     padding: 0 1em;
+    display: none;
 
 }
 
