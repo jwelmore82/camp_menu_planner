@@ -5,14 +5,15 @@
         <title>Camp Menu Planner | Home</title>
         <!-- Will use link to https://github.com/necolas/normalize.css if online -->
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.min.css">
         <link rel="shortcut icon" href="img/CMPlogo.ico" type="image/ico">
+        <link href='http://fonts.googleapis.com/css?family=Cabin%7CPacifico' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="tab1">
         <header>
-            <img src="img/CMPlogo.svg" width="130px" alt="Camp Menu Planner Logo" class="logo">
-            <h1><span>Welcome to the Camp Menu Planner!</span></h1>
+            <img src="img/CMPlogo.svg" width="90" height="88" alt="Camp Menu Planner Logo" class="logo">
+            <h1><span>Camp Menu Planner</span></h1>
             <ul id="tabnav">
                 <li class="tab1"><a>About</a></li>
                 <li class="tab2"><a>Select Ingredients</a></li>
@@ -34,25 +35,38 @@
         </form>
         <div id="tips">
             <h3>General Camp Cooking Tips</h3>
-            <img src="img/field_kitchen.gif" alt="Field Kitchen" width="200px" />
-            <h4>Prepare your meals</h4>
-            <p>Be sure to check your ingredients before you make it to your
+            <img src="img/field_kitchen.gif" alt="Field Kitchen" width="200" />
+            <div>
+                <h4>Prepare your meals</h4>
+                <p>Be sure to check your ingredients before you make it to your
                 campsite. You may have food in your pantry you wouldn't normally
                 think to take camping.</p>
-            <h4>Do your prep at home</h4>
-            <p>Many items, such as chopped onions, can be prepared at home
-                 and kept in reusable containers.</p>
-            <h4>Hydrate!</h4>
-            <p>Camping and outdoor activities in high tempuratures
-                can drain you quickly, keep plenty of cold drinking water in
-                camp.</p>
-            <h4>Aluminum Foil</h4>
-            <p>Aluminum foil is extremely useful and versitile for camp cooking.
-                Keep some with your camp kitchen items at all times.</p>
-            <h4>Spice it up</h4>
-            <p>Keep a portable spice set with your camp larder.  These can
-                be found in the camping section at many retail stores, or there
-                are many DIY ideas to be found online.</p>
+            </div>
+            <div>
+                <h4>Do your prep at home</h4>
+                <p>Many items, such as chopped onions, can be prepared at home
+                     and kept in reusable containers.</p>
+            </div>
+            <div>
+                <h4>Hydrate!</h4>
+                <p>Camping and outdoor activities in high tempuratures
+                    can drain you quickly, keep plenty of cold drinking water in
+                    camp.</p>
+            </div>
+            <div>
+                <h4>Aluminum Foil</h4>
+                <p>Aluminum foil is extremely useful and versitile for camp cooking.
+                    Keep some with your camp kitchen items at all times.</p>
+            </div>
+            <div>
+                <h4>Spice it up</h4>
+                <p>Keep a portable spice set with your camp larder.  These can
+                    be found in the camping section at many retail stores, or
+                    <a href="https://www.google.com/webhp?sourceid=chrome-instant&amp;ion=1&amp;espv=2&amp;ie=UTF-8#q=camping+spice+kit+DIY">
+                    click here
+                    for some DIY ideas.</a>
+                </p>
+            </div>
         </div>
         <div class="recipes beans hotdogs mustard ketchup sugar onion" id="hotdog_cassarole">
             <h3>Hot Dog Casserole</h3>
@@ -214,9 +228,16 @@
         <footer>
             <a href="#">Back to top.</a>
             <a href="mailto:jwelmore82@gmail.com?subject=feedback">Email Developer</a>
+            <p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
 
         </footer>
         <script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/app.min.js"></script>
     </body>
 </html>
