@@ -1,13 +1,3 @@
-@font-face {
-    font-family: 'Journal';
-    src: url('../fonts/journal-webfont.eot');
-    src: url('../fonts/journal-webfont.eot?iefix') format('eot'),
-         url('../fonts/journal-webfont.woff') format('woff'),
-         url('../fonts/journal-webfont.ttf') format('truetype'),
-         url('../fonts/journal-webfont.svg#webfont') format('svg')
-}
-
-
 body {
     background-image: url("../img/tree.jpg");
     background-attachment:  fixed;
@@ -16,24 +6,38 @@ body {
     box-sizing: border-box;
 }
 
+a:link {
+    text-decoration: none;
+    color: #a85405;
+}
+
+a:visited {
+    color: #a85405;
+}
+
+a:hover, a:focus {
+    color: purple;
+ }
+
 header {
     color: #fff;
     background: linear-gradient(#0000ff, rgba(153, 230, 255, 1), rgba(0, 76, 0, 1), rgba(54, 32, 30, .9), #000);
     padding-top: 2%;
     font-size: 1.35em;
     text-align: center;
-    margin: 0 0 10px o;
+    margin: 0 0 10px 0;
     text-shadow: 10px 10px 10px black;
 }
 header h1 {
-    margin-top: 8px;
+    margin-top: .25em;
+    font-family: 'Cabin', sans-serif;
 }
 
 .logo {
 
     border-radius: 20%;
     border: 5px solid rgb(0, 76, 0);
-    background-color: #a85405
+    background-color: #a85405;
 }
 
 
@@ -49,7 +53,7 @@ Tabbed Navigation
     font-size: .75em;
     margin-left: auto;
     margin-right: auto;
-    font-family: Arial, fantasy;
+    font-family: 'Cabin', sans-serif;
 }
 
 
@@ -72,7 +76,7 @@ body#tab3 li.tab3, body#tab4 li.tab4{
     margin-top: 1em;
 }
 
-#tabnav li:hover, #tabnav li:focus  {
+#tabnav li:hover, #tabnav li:focus {
     background: rgba(153, 230, 255, .5);
 }
 
@@ -87,11 +91,10 @@ Content Styles
     background-image: url("../img/wood_02.jpg");
     max-width: 80%;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
     box-shadow: 10px 10px 5px black;
-    font-family: sans-serif;
-
+    font-family: 'Cabin', sans-serif;
+    padding: 1em;
+    margin: 1em auto;
 }
 
 #tips p {
@@ -112,7 +115,6 @@ Content Styles
     float: left;
     clear: both;
     max-width: 100%;
-    position: relative;
 
 }
 
@@ -124,9 +126,9 @@ Recipes
 .recipes {
     background-color: #eee;
     max-width: 80%;
-    font-family: cursive, sans-serif;
+    font-family: 'Cabin', sans-serif;
     background-image: url("../img/wood_01.jpg");
-    color: yellow;
+    color: #FFD119;
     border: #36201e 5px ridge;
     margin: 1.2em auto;
     box-shadow: 10px 10px 5px black;
@@ -136,7 +138,7 @@ Recipes
 }
 
 .recipes h3 {
-    font-family: 'Journal', cursive;
+    font-family: 'Pacifico', cursive;
     font-size: 2.5em;
     text-align: center;
     margin: 10px;
@@ -147,7 +149,7 @@ Recipes
 }
 
 .recipes h4 {
-    font-family: 'Journal', cursive;
+    font-family: 'Pacifico', cursive;
     font-size: 1.75em;
     margin: 10px;
 }
@@ -159,8 +161,85 @@ Footer
 footer {
     height: 4em;
     background: linear-gradient(rgba(0, 76, 0, 1), rgba(54, 32, 30, .9), #000);
+    padding: 1px;
 }
 
 footer a {
     text-decoration: none;
+    margin: 1em;
+}
+
+
+
+/***********************
+Responsive
+**********************/
+
+
+@media screen and (min-width: 390px) {
+    #tabnav {
+        float: right;
+        margin: 0;
+    }
+
+    #tabnav li {
+        float: left;
+        margin-right: 1em;
+    }
+
+    header {
+        overflow: auto;
+    }
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    .logo {
+        float: left;
+        margin:.75em 1em .5em;
+    }
+
+}
+
+@media screen and (min-width: 534px) {
+    .user_input label {
+        clear: none;
+    }
+
+    .user_input label:nth-of-type(3n), .user_input input[type=submit]  {
+        margin: .5em;
+        clear:left;
+    }
+
+    #tips {
+        overflow: hidden;
+    }
+
+    #tips img {
+        float: right;
+        width: 45%;
+        height: auto;
+    }
+    #tips div {
+        max-width: 55%;
+        float: left;
+        clear: left;
+    }
+}
+
+@media screen and (min-width: 847px) {
+    .logo {
+        width: 2.5em;
+        height: auto;
+        border: 2px solid rgb(0, 76, 0);
+    }
+
+    header {
+        overflow: auto;
+    }
+
+    h1 {
+        float: left;
+    }
 }
