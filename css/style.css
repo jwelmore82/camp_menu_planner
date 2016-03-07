@@ -105,18 +105,17 @@ Content Styles
 
 
 .user_input {
-    display: none;
     overflow: auto;
     padding-left: 3em;
 }
 
-.user_input label, .user_input input[type=submit]  {
+/*.user_input label, .user_input input[type=submit]  {
     margin: .5em;
     float: left;
     clear: both;
     max-width: 100%;
 
-}
+}*/
 
 
 /********
@@ -242,4 +241,8 @@ Responsive
     h1 {
         float: left;
     }
+
+	.user_input label {
+		clear: none;
+	}
 }

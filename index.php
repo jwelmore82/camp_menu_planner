@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Camp Menu Planner | Home</title>
-        <!-- Will use link to https://github.com/necolas/normalize.css if online -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.min.css">
-        <link rel="shortcut icon" href="img/CMPlogo.ico" type="image/ico">
-        <link href='http://fonts.googleapis.com/css?family=Cabin%7CPacifico' rel='stylesheet' type='text/css'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body id="tab1">
-        <header>
-            <img src="img/CMPlogo.svg" width="90" height="88" alt="Camp Menu Planner Logo" class="logo">
-            <h1><span>Camp Menu Planner</span></h1>
-            <ul id="tabnav">
-                <li class="tab1"><a>About</a></li>
-                <li class="tab2"><a>Select Ingredients</a></li>
-                <li class="tab3"><a>Browse Recipes</a></li>
-            </ul>
-        </header>
+@@ -0,0 +1,206 @@
+<?php
+    require 'inc/functions.php';
+    require 'inc/header.php';
+ ?>
 
         <div id="about">
             <h3>About the Site</h3>
@@ -29,10 +12,6 @@
                    ingredients. As an alternative you can browse recipes, select
                     your favorites, and generate a shopping list. </p>
         </div>
-        <form class="user_input" action="index.html" method="post">
-            <h3>Select Ingredients</h3>
-
-        </form>
         <div id="tips">
             <h3>General Camp Cooking Tips</h3>
             <img src="img/field_kitchen.gif" alt="Field Kitchen" width="200" />
@@ -68,7 +47,7 @@
                 </p>
             </div>
         </div>
-        <div class="recipes beans hotdogs mustard ketchup sugar onion" id="hotdog_cassarole">
+        <!-- <div class="recipes beans hotdogs mustard ketchup sugar onion" id="hotdog_cassarole">
             <h3>Hot Dog Casserole</h3>
             <ul>
 
@@ -223,21 +202,6 @@
                 <li>salt and pepper to taste</li>
             </ul>
             <p>Add water to ground beef and mix well. Add potatoes, onion and seasoning. Mix well. Separate into 3-4 servings. Wrap in double-thickness aluminum foil. Place seam side up on medium hot grill for 40 minutes, rotating periodically. Do not flip. Open carefully. Serve with ketchup.</p>
-        </div>
+        </div> -->
 
-        <footer>
-            <a href="#">Back to top.</a>
-            <a href="mailto:jwelmore82@gmail.com?subject=feedback">Email Developer</a>
-            <p>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
-</p>
-
-        </footer>
-        <script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-        <script type="text/javascript" src="js/app.min.js"></script>
-    </body>
-</html>
+<?php require 'inc/footer.php'; ?>
