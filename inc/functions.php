@@ -1,4 +1,6 @@
 <?php
+
+// This function keeps the tabs working as they are set up now. For now...
     function setBody()
     {
         $request_script = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
@@ -12,4 +14,6 @@
             echo 'tab3';
         }
     }
+
+    $sql = new PDO('mysql:host=localhost;dbname=cmp_database', "user", "");
  ?>
