@@ -109,13 +109,17 @@ Content Styles
     padding-left: 3em;
 }
 
-/*.user_input label, .user_input input[type=submit]  {
+.user_input th {
+    font-size: 1.4em;
+}
+
+.user_input label, .user_input input[type=submit]  {
     margin: .5em;
     float: left;
     clear: both;
     max-width: 100%;
 
-}*/
+}
 
 
 /********
@@ -225,7 +229,6 @@ Responsive
         clear: left;
     }
 }
-
 @media screen and (min-width: 847px) {
     .logo {
         width: 2.5em;

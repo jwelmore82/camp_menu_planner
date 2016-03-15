@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Camp Menu Planner | Home</title>
-        <!-- Will use link to https://github.com/necolas/normalize.css if online -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" href="img/CMPlogo.ico" type="image/ico">

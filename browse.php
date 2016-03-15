@@ -4,15 +4,48 @@
  ?>
 <div class="recipes">
     <?php
-    $ret= $sql->prepare("SELECT id, recipe_name, included_ingredients FROM recipes JOIN included_ingredients USING (id)");
-    $ret->execute();
-    $recipes = $ret->fetchAll(PDO::FETCH_NAMED);
 
-    foreach ($recipes as $recipe) {
-        $recipe_html = "<a href='recipes.php?id=" . $recipe['id'] . "'><h4>" .
-        $recipe['recipe_name'] . "</h4></a>" ."<br>" . "  Includes: " .
-        $recipe['included_ingredients'] . "<br>";
-        echo $recipe_html;
+    if (isset($_GET['id'])) {
+        // Filter
+        $intval_id = intval($_GET['id']);
+        try {
+            $ret= $sql->prepare("SELECT id, recipe_name, included_ingredients, recipe_body
+                FROM recipes WHERE id = ?");
+            //FILTER
+            $ret->bindParam(1, $intval_id);
+            $ret->execute();
+            $full_recipe = $ret->fetch();
+            // Throw new exception if id isnt found:
+            if (!$full_recipe) {
+                throw new Exception("<h2>Sorry, Recipe Not Found</h2>");
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            die();
+        }
+        $full_recipe_html = "<h3>{$full_recipe['recipe_name']}</h3>{$full_recipe['recipe_body']}";
+
+        echo $full_recipe_html;
+
+    } else {
+        $ret= $sql->prepare("SELECT id, recipe_name, included_ingredients
+            FROM recipes");
+        $ret->execute();
+        $recipes = $ret->fetchAll(PDO::FETCH_NAMED);
+        foreach ($recipes as $recipe) {
+            $recipe_html = "<a href='browse.php?id={$recipe['id']}'><h4>
+                {$recipe['recipe_name']}</h4></a><br><li>Includes: ";
+
+            $included_ingredients = explode(',',$recipe['included_ingredients']);
+
+            foreach ($included_ingredients as $ingredient) {
+                $recipe_html .= "{$keyed_ingredients[$ingredient]}, ";
+            }
+
+            $recipe_html = rtrim($recipe_html, ', ');
+            $recipe_html .= "</li><br>";
+            echo $recipe_html;
+        }
     }
     ?>
 </div>
