@@ -1,0 +1,13 @@
+{
+    "name": "cmp/camp_menu_planner",
+    "description": "Camp menu planner PHP project for Code Louisville",
+    "require": {
+        "phpunit/phpunit": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "Joshua Elmore",
+            "email": "jwelmore82@gmail.com"
+        }
+    ]
+}
