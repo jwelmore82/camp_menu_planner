@@ -14,7 +14,7 @@
             <h3>General Camp Cooking Tips</h3>
             <img src="img/field_kitchen.gif" alt="Field Kitchen" width="200" />
             <div>
-                <h4>Prepare your meals</h4>
+                <h4>Plan your meals</h4>
                 <p>Be sure to check your ingredients before you make it to your
                 campsite. You may have food in your pantry you wouldn't normally
                 think to take camping.</p>
@@ -23,6 +23,14 @@
                 <h4>Do your prep at home</h4>
                 <p>Many items, such as chopped onions, can be prepared at home
                      and kept in reusable containers.</p>
+            </div>
+            <div>
+                <h4>Don&rsquo;t be afraid to substitute</h4>
+                <p>
+                    Usually any ground meat can be a substitute for ground beef.
+                    Hotdogs can be swapped for beef links or bratwursts.  Experiment
+                    with your favorites!  Just be sure to cook everything thoroughly.
+                </p>
             </div>
             <div>
                 <h4>Hydrate!</h4>

@@ -14,7 +14,7 @@ class CheckForIngredientsTest extends PHPUnit_Framework_TestCase
     public function ingredientsData()
     {
         $selected = ['beef','cheese','bun'];
-        
+
         return [
             [$selected,['included_ingredients'=>'beef,cheese,bun'], true],
             [$selected,['included_ingredients'=>'chocolate, marshmallow, graham'], false],
@@ -65,5 +65,25 @@ class KeyedUpTest extends PHPUnit_Framework_TestCase
                     'graham' => 'Graham Crackers',
                     'carrot' => 'Carrots'];
         return [[$testdata, $result]];
+    }
+}
+
+class RecipeHtmlTest extends PHPUnit_Framework_TestCase{
+    /**
+     * @dataProvider recipeData
+     */
+
+    public function test_recipeToHtml($input, $expected)
+    {
+        $this->assertEquals($expected, recipeToHtml($input));
+    }
+
+    public function recipeData()
+    {
+        $rawData = ['recipe_name' => 'Any Recipe',
+                    'recipe_body' => 'ingredient1+ingredient2##This is how you do it. Servings: 1-2'];
+        $expectedHtml = '<h3>Any Recipe</h3><ul><li>ingredient1</li><li>ingredient2</li></ul><p>This is how you do it.</p><h4>Servings: 1-2</h4>';
+
+        return [[$rawData, $expectedHtml]];
     }
 }

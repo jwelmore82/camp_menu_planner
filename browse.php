@@ -10,7 +10,7 @@
         $intval_id = intval($_GET['id']);
         try {
             $ret= $sql->prepare("SELECT id, recipe_name, included_ingredients, recipe_body
-                FROM recipes WHERE id = ?");
+                FROM `recipes` WHERE id = ?");
             //FILTER
             $ret->bindParam(1, $intval_id);
             $ret->execute();
@@ -23,13 +23,12 @@
             echo $e->getMessage();
             die();
         }
-        $full_recipe_html = "<h3>{$full_recipe['recipe_name']}</h3>{$full_recipe['recipe_body']}";
 
-        echo $full_recipe_html;
+        echo recipeToHtml($full_recipe);
 
     } else {
         $ret= $sql->prepare("SELECT id, recipe_name, included_ingredients
-            FROM recipes");
+            FROM `recipes` ORDER BY recipe_name");
         $ret->execute();
         $recipes = $ret->fetchAll(PDO::FETCH_NAMED);
         $keyed_ingredients = keyedUp($ingredients);

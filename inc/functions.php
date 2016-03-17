@@ -107,3 +107,34 @@ try {
         }
         return $search;
     }
+
+    function recipeToHtml($recipeFromDatabase)
+    {
+        $recipeBody = $recipeFromDatabase['recipe_body'];
+        $cleanName = htmlspecialchars($recipeFromDatabase['recipe_name']);
+        $ingredientString = strstr($recipeBody, '##', true);
+        $ingredientArray = explode('+', $ingredientString);
+        $cleanIngredients = '';
+        foreach ($ingredientArray as $ingredient) {
+            $cleanIngredient = htmlspecialchars($ingredient);
+            $cleanIngredients .= "<li>{$cleanIngredient}</li>";
+        }
+        $steps = strstr($recipeBody, '##');
+        $noServe = strpos($steps, ' Servings:') - 2;
+        $steps = substr($steps, 2, $noServe);
+        $cleanSteps = htmlspecialchars($steps);
+        $servings = strstr($recipeBody, 'Servings:');
+        $cleanServings = htmlspecialchars($servings);
+        $full_recipe_html = "<h3>{$cleanName}</h3><ul>{$cleanIngredients}</ul><p>{$cleanSteps}</p><h4>{$cleanServings}</h4>";
+        return $full_recipe_html;
+    }
+
+
+// <?php
+// $email  = 'name@example.com';
+// $domain = strstr($email, '@');
+// echo $domain; // prints @example.com
+//
+// $user = strstr($email, '@', true); // As of PHP 5.3.0
+// echo $user; // prints name
+// ?>
