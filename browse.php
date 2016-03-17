@@ -32,6 +32,7 @@
             FROM recipes");
         $ret->execute();
         $recipes = $ret->fetchAll(PDO::FETCH_NAMED);
+        $keyed_ingredients = keyedUp($ingredients);
         foreach ($recipes as $recipe) {
             $recipe_html = "<a href='browse.php?id={$recipe['id']}'><h4>
                 {$recipe['recipe_name']}</h4></a><br><li>Includes: ";

@@ -6,10 +6,9 @@
         <div id="about">
             <h3>About the Site</h3>
             <p>Have some food at camp but not sure what to make? Want to try some
-                 recipes and need a shopping list? You're in the right place! The
+                 recipes and need some ideas? You're in the right place! The
                   Camp Menu Planner will suggest recipes based on your selected
-                   ingredients. As an alternative you can browse recipes, select
-                    your favorites, and generate a shopping list. </p>
+                   ingredients. Or browse recipes for some tasty ideas! </p>
         </div>
         <div id="tips">
             <h3>General Camp Cooking Tips</h3>
@@ -40,11 +39,11 @@
                 <h4>Spice it up</h4>
                 <p>Keep a portable spice set with your camp larder.  These can
                     be found in the camping section at many retail stores, or
-                    <a href="https://www.google.com/webhp?sourceid=chrome-instant&amp;ion=1&amp;espv=2&amp;ie=UTF-8#q=camping+spice+kit+DIY">
+                    <a href="https://www.google.com/search?q=camping+spice+kit+DIY">
                     click here
                     for some DIY ideas.</a>
                 </p>
             </div>
         </div>
-        
+
 <?php include 'inc/footer.php'; ?>

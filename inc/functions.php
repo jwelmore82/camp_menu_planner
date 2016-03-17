@@ -1,17 +1,24 @@
 <?php
 
-// This function keeps the tabs working as they are set up now. For now...
-    function setBody()
+// These functions keep the tabs working as they are set up now. For now...
+
+    function getScript()
     {
         $request_script = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
-        if ($request_script == "index.php") {
-            echo 'tab1';
+        return $request_script;
+    }
+
+    function setBody($script)
+    {
+
+        if ($script == "index.php") {
+            return 'tab1';
         }
-        if ($request_script == "select.php") {
-            echo 'tab2';
+        if ($script == "select.php") {
+            return 'tab2';
         }
-        if ($request_script == "browse.php") {
-            echo 'tab3';
+        if ($script == "browse.php") {
+            return 'tab3';
         }
     }
 //Basic connection
@@ -34,9 +41,15 @@ try {
 //
     $ingredients = $ret->fetchAll(PDO::FETCH_ASSOC);
     $keyed_ingredients = array();
-    foreach ($ingredients as $ingredient) {
-        $keyed_ingredients[$ingredient['short_name']]=$ingredient['display_name'];
-    };
+
+    function keyedUp($ingredientsFromDatabase)
+    {
+        foreach ($ingredientsFromDatabase as $ingredient) {
+            $keyed_ingredients[$ingredient['short_name']]=$ingredient['display_name'];
+        }
+        return $keyed_ingredients;
+    }
+
 
     function makeCheckboxes($ingredients)
     {
@@ -77,4 +90,20 @@ try {
             return false;
         }
     }
- ?>
+
+    //This function handles the POST data from/on select.php
+
+    function postDataAsSearch($data){
+        $count = 0;
+        foreach($data as $text)
+        {
+          if($count > 0){
+           $search .= "UNION SELECT * FROM `recipes` WHERE
+             recipes.included_ingredients LIKE '%$text%'";
+         } else{
+             $search = "SELECT * FROM `recipes` WHERE recipes.included_ingredients
+             LIKE '%$text%'";}
+          $count++;
+        }
+        return $search;
+    }

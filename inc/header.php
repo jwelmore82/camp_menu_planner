@@ -9,7 +9,7 @@
         <link href='http://fonts.googleapis.com/css?family=Cabin%7CPacifico' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body id=<?php setBody(); ?>>
+    <body id=<?php echo setBody(getScript()); ?>>
         <header>
             <img src="img/CMPlogo.svg" width="90" height="88" alt="Camp Menu Planner Logo" class="logo">
             <h1><span>Camp Menu Planner</span></h1>

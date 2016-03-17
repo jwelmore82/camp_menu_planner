@@ -2,24 +2,13 @@
     require_once 'inc/functions.php';
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $request = array_keys($_POST);
-        $count = 0;
-        foreach($request as $text)
-        {
-          if($count > 0)
-             $search .= "UNION SELECT * FROM `recipes` WHERE
-             recipes.included_ingredients LIKE '%$text%'";
-          else
-             $search = "SELECT * FROM `recipes` WHERE recipes.included_ingredients
-             LIKE '%$text%'";
-
-          $count++;
-        }
+        $search = postDataAsSearch($request);
         try {
             $dbh = $sql->prepare($search);
             $dbh->execute();
 
         } catch (Exception $e) {
-            header('Location: http://localhost/camp_menu_planner/browse.php');
+            header('Location: ./browse.php');
             exit;
         }
         $yourRecipes = "";
@@ -32,7 +21,7 @@
             };
         }
         $yourRecipes = rtrim($yourRecipes, "+");
-        header("Location: http://localhost/camp_menu_planner/select.php?results={$matches}&id={$yourRecipes}");
+        header("Location: ./select.php?results={$matches}&id={$yourRecipes}");
     }
 
 
