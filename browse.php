@@ -2,7 +2,7 @@
     require_once 'inc/functions.php';
     require 'inc/header.php';
  ?>
-<div class="recipes">
+<div class="recipes" id="recipe_view">
     <?php
 
     if (isset($_GET['id'])) {
@@ -24,29 +24,26 @@
             die();
         }
 
-        echo recipeToHtml($full_recipe);
+        echo recipeToHtml($full_recipe); ?>
+        <script type="text/javascript">
+            window.location = "#recipe_view";
+        </script>
+        <?php
 
     } else {
-        $ret= $sql->prepare("SELECT id, recipe_name, included_ingredients
-            FROM `recipes` ORDER BY recipe_name");
-        $ret->execute();
-        $recipes = $ret->fetchAll(PDO::FETCH_NAMED);
-        $keyed_ingredients = keyedUp($ingredients);
-        foreach ($recipes as $recipe) {
-            $recipe_html = "<a href='browse.php?id={$recipe['id']}'><h4>
-                {$recipe['recipe_name']}</h4></a><br><li>Includes: ";
-
-            $included_ingredients = explode(',',$recipe['included_ingredients']);
-
-            foreach ($included_ingredients as $ingredient) {
-                $recipe_html .= "{$keyed_ingredients[$ingredient]}, ";
+        $allRecipes = "SELECT id, recipe_name, included_ingredients
+            FROM `recipes` ORDER BY recipe_name;";
+            try {
+                $ret= $sql->prepare($allRecipes);
+                $ret->execute();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+                exit;
             }
-
-            $recipe_html = rtrim($recipe_html, ', ');
-            $recipe_html .= "</li><br>";
-            echo $recipe_html;
-        }
+            $recipes = $ret->fetchAll(PDO::FETCH_NAMED);
+            $keyed_ingredients = keyedUp($ingredients);
+            echo recipesShortForm($recipes, $keyed_ingredients);
     }
     ?>
 </div>
- <?php include 'inc/footer.php'; ?>
+ <?php include_once 'inc/footer.php'; ?>

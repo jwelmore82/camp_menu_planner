@@ -87,3 +87,23 @@ class RecipeHtmlTest extends PHPUnit_Framework_TestCase{
         return [[$rawData, $expectedHtml]];
     }
 }
+
+class DisplayResultsTest extends PHPUnit_Framework_TestCase
+{
+    /**
+     * @dataProvider getIdData
+     */
+    public function test_resultsSearch($input, $expected)
+    {
+        $this->assertEquals($expected, resultsSearch($input));
+    }
+
+    public function getIdData()
+    {
+        return [
+            ['8 12','SELECT id, recipe_name, included_ingredients FROM `recipes` WHERE id = 8 OR id = 12 ORDER BY recipe_name;'],
+            ['8','SELECT id, recipe_name, included_ingredients FROM `recipes` WHERE id = 8 ORDER BY recipe_name;'],
+            ['5 8 12','SELECT id, recipe_name, included_ingredients FROM `recipes` WHERE id = 5 OR id = 8 OR id = 12 ORDER BY recipe_name;'],
+        ];
+    }
+}

@@ -40,6 +40,10 @@ header h1 {
     background-color: #a85405;
 }
 
+p#results {
+    font-size: 1.25em;
+}
+
 
 
 /*************************************************
@@ -106,14 +110,14 @@ Content Styles
 
 .user_input {
     overflow: auto;
-    padding-left: 3em;
+    padding-left: 1em;
 }
 
 .user_input th {
     font-size: 1.4em;
 }
 
-.user_input label, .user_input input[type=submit]  {
+.user_input td, .user_input input[type=submit]  {
     margin: .5em;
     float: left;
     clear: both;
@@ -205,13 +209,12 @@ Responsive
 }
 
 @media screen and (min-width: 534px) {
-    .user_input label {
-        clear: none;
-    }
 
-    .user_input label:nth-of-type(3n), .user_input input[type=submit]  {
-        margin: .5em;
-        clear:left;
+    .user_input td {
+        clear: none;
+        float: none;
+        text-align: left;
+        padding: .5em;
     }
 
     #tips {
@@ -244,7 +247,4 @@ Responsive
         float: left;
     }
 
-	.user_input label {
-		clear: none;
-	}
 }

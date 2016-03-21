@@ -43,5 +43,38 @@ echo makeCheckboxes($ingredients);
 <button type="submit">Search For Recipes</button>
 </form>
 <?php
-include 'inc/footer.php';
+if (isset($_GET['results'])) {
+    $getResults = intval($_GET['results']);
+    ?>
+    <div class="recipes">
+    <?php
+    if ($getResults == 0) {
+        echo "<p id='results'>Sorry, no results. Select more ingredients, or try browsing recipes!</p>";
+    } else { ?>
+        <h2  id="results"><?php echo $getResults . " "; ?>Matches found!</h2>
+    <?php
+        $getId = $_GET['id'];
+        $mySearch = resultsSearch($getId);
+        try {
+            $ret= $sql->prepare($mySearch);
+            $ret->execute();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            exit;
+        }
+        $recipes = $ret->fetchAll(PDO::FETCH_NAMED);
+        $keyed_ingredients = keyedUp($ingredients);
+        echo recipesShortForm($recipes, $keyed_ingredients);
+    }
+    ?>
+    <script type="text/javascript">
+        window.location = "#results";
+    </script>
+    </div>
+    <?php
+}
+?>
+
+<?php
+include_once 'inc/footer.php';
  ?>

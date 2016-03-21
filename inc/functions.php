@@ -62,7 +62,7 @@ try {
             $checkbox_html .= "<td><label><input type='checkbox'
                 value='included' name={$ingredient['short_name']}></input>
                 {$ingredient['display_name']}</label></td>";
-                //New row for every 3 items. Still needs work for different devices.
+                //New row for every 3 items on larger devices.
                 if (($display_id % 3) == 0) {
                     $checkbox_html .= "</tr><tr>";
                 }
@@ -91,7 +91,7 @@ try {
         }
     }
 
-    //This function handles the POST data from/on select.php
+//Functions for creating search queries
 
     function postDataAsSearch($data){
         $count = 0;
@@ -106,6 +106,46 @@ try {
           $count++;
         }
         return $search;
+    }
+
+    function resultsSearch($ids)
+    {
+        $allIds = explode(" ", $ids);
+        $count = 0;
+        $search = '';
+        foreach ($allIds as $match) {
+            $cleanMatch = intval($match);
+            if ($count == 0) {
+                $search .= "SELECT id, recipe_name, included_ingredients FROM `recipes` WHERE id = {$cleanMatch}";
+            } else {
+                $search .= " OR id = {$cleanMatch}";
+            }
+            $count++;
+        }
+        $search .= " ORDER BY recipe_name;";
+        return $search;
+    }
+
+
+//Functions for displaying recipes
+
+    function recipesShortForm($recipeResults, $keys)
+    {
+        $recipe_html = '';
+        foreach ($recipeResults as $recipe) {
+            $recipe_html .= "<a href='browse.php?id={$recipe['id']}'><h4>
+                {$recipe['recipe_name']}</h4></a><br><li>Includes: ";
+
+            $included_ingredients = explode(',',$recipe['included_ingredients']);
+
+            foreach ($included_ingredients as $ingredient) {
+                $recipe_html .= "{$keys[$ingredient]}, ";
+            }
+
+            $recipe_html = rtrim($recipe_html, ', ');
+            $recipe_html .= "</li><br>";
+        }
+        return $recipe_html;
     }
 
     function recipeToHtml($recipeFromDatabase)
@@ -128,13 +168,3 @@ try {
         $full_recipe_html = "<h3>{$cleanName}</h3><ul>{$cleanIngredients}</ul><p>{$cleanSteps}</p><h4>{$cleanServings}</h4>";
         return $full_recipe_html;
     }
-
-
-// <?php
-// $email  = 'name@example.com';
-// $domain = strstr($email, '@');
-// echo $domain; // prints @example.com
-//
-// $user = strstr($email, '@', true); // As of PHP 5.3.0
-// echo $user; // prints name
-// ?>
