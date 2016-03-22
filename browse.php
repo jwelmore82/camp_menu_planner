@@ -25,6 +25,7 @@
         }
 
         echo recipeToHtml($full_recipe); ?>
+        <!--Jumping to recipe makes mobile version have a better flow.  -->
         <script type="text/javascript">
             window.location = "#recipe_view";
         </script>

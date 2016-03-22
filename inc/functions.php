@@ -29,6 +29,8 @@ try {
     echo $e->getMessage();
     exit;
 }
+
+//Ingredients list needed for multiple pages
 try {
     $ret= $sql->prepare('SELECT * FROM `ingredients` ORDER BY display_name');
     //Order by display_name so visitors always see checkboxes in alphabetical order.
@@ -37,8 +39,6 @@ try {
     echo $e->getMessage();
     exit;
 }
-
-//
     $ingredients = $ret->fetchAll(PDO::FETCH_ASSOC);
     $keyed_ingredients = array();
 
@@ -73,7 +73,8 @@ try {
 
 // This function takes the values from the checkboxes and checks them against
 // the results from the recipe table search for all recipes containing selected ingredients.
-
+    //$input is post data array of ingredient short names. These names match possible
+    //set data in recipes table for included ingredients column.
     function checkForIngredients($input, $result)
     {
         $hasIngredient = 0;
@@ -98,8 +99,7 @@ try {
         foreach($data as $text)
         {
           if($count > 0){
-           $search .= "UNION SELECT * FROM `recipes` WHERE
-             recipes.included_ingredients LIKE '%$text%'";
+           $search .= "OR recipes.included_ingredients LIKE '%$text%'";
          } else{
              $search = "SELECT * FROM `recipes` WHERE recipes.included_ingredients
              LIKE '%$text%'";}

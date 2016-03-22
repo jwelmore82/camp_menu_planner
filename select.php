@@ -1,5 +1,9 @@
 <?php
     require_once 'inc/functions.php';
+    //This pages handles its own post data, then redirects to itself
+    // with $_GET variables set. This prevents resending data on page
+    //reload and lets the user click on a recipe to view it, and then
+    //use the back button to return to their results.
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $request = array_keys($_POST);
         $search = postDataAsSearch($request);
@@ -49,6 +53,9 @@ if (isset($_GET['results'])) {
     <div class="recipes">
     <?php
     if ($getResults == 0) {
+        //Results only show when all ingredients are matched. eg, searching for
+        //graham crackers and chocolate won't return s'mores because that
+        //recipe calls for marshmallows
         echo "<p id='results'>Sorry, no results. Select more ingredients, or try browsing recipes!</p>";
     } else { ?>
         <h2  id="results"><?php echo $getResults . " "; ?>Matches found!</h2>
@@ -67,6 +74,7 @@ if (isset($_GET['results'])) {
         echo recipesShortForm($recipes, $keyed_ingredients);
     }
     ?>
+    <!--Jumping to results makes mobile version have a better flow.  -->
     <script type="text/javascript">
         window.location = "#results";
     </script>
