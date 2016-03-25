@@ -92,6 +92,23 @@ try {
         }
     }
 
+    function checkForOneMissing($input, $result)
+    {
+        $hasIngredient = 0;
+        $inc_ing = $result['included_ingredients']; //String from set in database
+        foreach ($input as $in) {
+            if (strrpos($inc_ing, $in) !== false){
+                $hasIngredient ++;
+            }
+        }
+        $boom = explode(",", $inc_ing);
+        if (count($boom)-1 === $hasIngredient) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 //Functions for creating search queries
 
     function postDataAsSearch($data){
